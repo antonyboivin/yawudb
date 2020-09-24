@@ -2,7 +2,8 @@ import React, { Suspense, lazy } from "react";
 import ReactDOM from "react-dom";
 import { Route, Redirect, Switch } from "react-router-dom";
 import { ConnectedRouter } from "connected-react-router";
-import "./index.css";
+// import "./index.css";
+import "./styles/main.css";
 import Home from "./pages/Home";
 
 import registerServiceWorker from "./registerServiceWorker";
@@ -25,6 +26,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Container from "@material-ui/core/Container";
 import RootHelmet from "./components/Root/rootMetas";
+import NavigationPanel from "./v2/components/NavigationPanel";
 
 const DeckCreator = lazy(() => import("./pages/DeckCreator"));
 const Decks = lazy(() => import("./pages/Decks"));
@@ -47,9 +49,6 @@ const MetaReset = lazy(() => import("./pages/MetaResetPage"));
 
 const history = createBrowserHistory();
 const store = configureStore(history);
-
-console.log(history);
-console.log(store.getState());
 
 const setToLastLocation = (state, history) => {
     // if (state.router.location.pathname !== history.location.pathname) {
@@ -110,13 +109,14 @@ const useStyles = makeStyles((theme) => ({
         },
     },
 
-    mainContent: {
-        flex: "1 0",
-        paddingTop: "5rem",
-        [theme.breakpoints.up("sm")]: {
-            marginLeft: `calc(${drawerWidth}px + 1rem)`,
-        },
-    },
+    // mainContent: {
+    //     flex: "1 0",
+    //     paddingTop: "5rem",
+    //     background: 'magenta',
+    //     // [theme.breakpoints.up("sm")]: {
+    //     //     marginLeft: `calc(${drawerWidth}px + 1rem)`,
+    //     // },
+    // },
 }));
 
 function App(props) {
@@ -169,12 +169,14 @@ function App(props) {
     return (
         <>
             <RootHelmet />
-            <CssBaseline />
+            {/* <CssBaseline />
             <Container maxWidth="lg" className={classes.root}>
+            </Container> */}
                 <ConnectedRouter history={history}>
-                    <MenuAppBar />
+                    {/* <MenuAppBar /> */}
+                    <NavigationPanel />
 
-                    <main id="yawudb_main" className={classes.mainContent}>
+                    <main id="yawudb_main" className="flex-grow mx-auto md:min-w-3/4 flex">
                         <ErrorBoundary>
                             <Suspense fallback={<LazyLoading />}>
                                 <Switch>
@@ -287,7 +289,6 @@ function App(props) {
                     </main>
                     <Footer />
                 </ConnectedRouter>
-            </Container>
         </>
     );
 }
@@ -309,7 +310,7 @@ const theme = createMuiTheme({
     palette: {
         primary: {
             // light: will be calculated from palette.primary.main,
-            main: "#3B9979",
+            main: "#501408",
             // dark: will be calculated from palette.primary.main,
             // contrastText: will be calculated to contrast with palette.primary.main
         },

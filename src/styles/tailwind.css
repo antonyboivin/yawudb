@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    html {
+        @apply w-full h-full !important;
+    } 
+
+    body {
+        @apply w-full h-full !important;
+        background-color: #F0F0F0;
+    } 
+    
+    #root {
+        @apply w-full h-full;
+        display: grid;
+        grid-template-rows: auto 1fr auto;
+    } 
+}
+
+@layer utilities {
+    .w100 {
+        width: calc(100% - theme('spacing.12'));
+    }
+}

@@ -1,4 +1,10 @@
 const changelog = {
+    "0.40.0": {
+        "Arena Mortis": "Added Arena Mortis cards",
+    },
+    "0.39.3": {
+        "Bug fixes": "Fixed **Unforcused Blast** set. Indicator for decks validity for championship format should also be fixed."
+    },
     "0.39.0": {
         "Morgok's Crushas": "Added Morgok's Crushas expansion",
         "Morgwaeth's Blade Coven": "Added Morgwaeth's Blade Coven expansion",
@@ -177,6 +183,6 @@ const changelog = {
         "Caching": "More caching has been implemented for the *Deck Builder* page:/n- Selected **Faction** and **Sets** will stay selected until you change them;/n- Selected **cards** will stay selected until you save the deck or unselect them or click *RESET ALL* button;/n- Deck's **Name** and **Source** will be preserved until you change them or save the deck.",
         "PWA": "The app running from the homescreen will be set to the *last visited route* when re-started from homescreen or by comming from background (when you for example switched between the app and some other screen)."
     }
-}
+};
 
 export default changelog;
